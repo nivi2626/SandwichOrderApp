@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "143806769823",
+    "project_id": "sandwiches-abb4d",
+    "storage_bucket": "sandwiches-abb4d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:143806769823:android:3d5501c3abe5af54f890aa",
+        "android_client_info": {
+          "package_name": "projects.sandwichorders"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "143806769823-rsl96ugg8slno5255ug839c8k1jfic9t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "projects.sandwichorders",
+            "certificate_hash": "1234512345123451234512345123451234512345"
+          }
+        },
+        {
+          "client_id": "143806769823-15sm8cp8s3mgmpnf9d8lvkbu3f5o0c16.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCayMNB9wbAD--lFvliyVjYGeBBARgOcoA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "143806769823-15sm8cp8s3mgmpnf9d8lvkbu3f5o0c16.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

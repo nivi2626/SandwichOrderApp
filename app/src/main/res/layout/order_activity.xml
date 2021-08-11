@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OrderActivity">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="415dp"
+        android:layout_height="50dp"
+        android:textSize="40sp"
+        android:textColor="@color/white"
+        android:background="#4ED1A3"
+        android:fontFamily="cursive"
+        android:text="Rachel's Sandwiches!"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/name"
+        android:text="Name:"
+        android:layout_width="65dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="#626362"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <EditText
+        android:id="@+id/nameEdit"
+        android:layout_width="170dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:textColor="#626362"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/name"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <!--    spreads     -->
+
+    <TextView
+        android:id="@+id/spreads_instructions"
+        android:text="Choose spreads for your sandwich: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:textColor="@android:color/darker_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <CheckBox
+        android:id="@+id/cream_cheese"
+        android:text="Cream cheese"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textSize="20sp"
+        android:textColor="#626362"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="200dp"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="178dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spreads_instructions"/>
+
+    <CheckBox
+        android:id="@+id/pesto"
+        android:text="Pesto"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textSize="20sp"
+        android:textColor="#626362"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="200dp"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="178dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cream_cheese"/>
+
+    <CheckBox
+        android:id="@+id/guacamole"
+        android:text="Guacamole"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textSize="20sp"
+        android:textColor="#626362"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="200dp"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="178dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pesto"/>
+
+    <CheckBox
+        android:id="@+id/tahini"
+        android:text="Tahini"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:textSize="20sp"
+        android:textColor="#626362"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="178dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spreads_instructions"/>
+
+    <CheckBox
+        android:id="@+id/tapenade"
+        android:text="Tapenade"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:textSize="20sp"
+        android:textColor="#626362"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="178dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tahini"/>
+
+    <CheckBox
+        android:id="@+id/hummus"
+        android:text="Hummus"
+        android:textColor="#626362"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="178dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tapenade"/>
+
+    <!--    vegetables     -->
+
+    <TextView
+        android:id="@+id/vegetables_instructions"
+        android:text="Choose vegetables for your sandwich: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:textColor="@android:color/darker_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hummus" />
+
+    <CheckBox
+        android:id="@+id/tomatoes"
+        android:text="Tomatoes"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textSize="20sp"
+        android:textColor="#626362"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="200dp"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="178dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vegetables_instructions"/>
+
+    <CheckBox
+        android:id="@+id/lettuce"
+        android:text="Lettuce"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textSize="20sp"
+        android:textColor="#626362"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="200dp"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="178dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tomatoes"/>
+
+    <CheckBox
+        android:id="@+id/onion"
+        android:text="Onion"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textSize="20sp"
+        android:textColor="#626362"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="200dp"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="178dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lettuce"/>
+
+    <CheckBox
+        android:id="@+id/avocado"
+        android:text="Avocado"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:textSize="20sp"
+        android:textColor="#626362"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="178dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vegetables_instructions"/>
+
+    <CheckBox
+        android:id="@+id/Cucumbers"
+        android:text="cucumbers"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:textSize="20sp"
+        android:textColor="#626362"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="178dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/avocado"/>
+
+    <CheckBox
+        android:id="@+id/pickles"
+        android:text="Pickles"
+        android:textColor="#626362"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="178dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Cucumbers"/>
+
+
+    <!--    comments     -->
+
+    <TextView
+        android:id="@+id/comments"
+        android:layout_width="125dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="10dp"
+        android:text="Comments: "
+        android:textColor="#626362"
+        android:textSize="20sp"
+        android:fontFamily="serif"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pickles" />
+
+    <EditText
+        android:id="@+id/commentsEdit"
+        android:layout_width="260dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:hint="any additional comments?"
+        android:textColor="#626362"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/comments"
+        app:layout_constraintTop_toBottomOf="@+id/pickles" />
+
+
+    <!--    save button     -->
+
+    <Button
+        android:id="@+id/saveButton"
+        android:text="save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:backgroundTint="#4ED1A3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
