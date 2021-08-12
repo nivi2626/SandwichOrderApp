@@ -3,23 +3,22 @@ package projects.sandwichorders
 import android.content.Context
 import android.content.SharedPreferences
 import com.google.gson.Gson
-import java.util.*
 
 
-class sandwichLocalDataBase internal constructor(context: Context) {
+class SandwichLocalDataBase internal constructor(context: Context) {
     // local phone DB:
     private var sp: SharedPreferences = context.getSharedPreferences("sandwiches_DB", Context.MODE_PRIVATE)
     var gson = Gson()
     // class DB:
-    var orderedSandwiches: MutableList<sandwich> = initialize()
+    var orderedSandwiches: MutableList<Sandwich> = initialize()
 
     private companion object {
-        var instance: sandwichLocalDataBase? = null
+        var instance: SandwichLocalDataBase? = null
     }
 
-    private fun initialize(): MutableList<sandwich> {
+    private fun initialize(): MutableList<Sandwich> {
         val keys: Set<String> = sp.all.keys
-        val orderedSandwiches = mutableListOf<sandwich>()
+        val orderedSandwiches = mutableListOf<Sandwich>()
         for (key in keys) {
             val sandwichAsString = sp.getString(key, null)
             if (sandwichAsString != null) {
@@ -29,15 +28,15 @@ class sandwichLocalDataBase internal constructor(context: Context) {
         return orderedSandwiches
     }
 
-    private fun string2sandwich(str: String): sandwich {
-        return gson.fromJson(str, sandwich::class.java)
+    private fun string2sandwich(str: String): Sandwich {
+        return gson.fromJson(str, Sandwich::class.java)
     }
 
-    private fun sandwich2string(sand: sandwich?): String {
+    private fun sandwich2string(sand: Sandwich?): String {
         return gson.toJson(sand)
     }
 
-    fun addNewSandwich(new: sandwich) {
+    fun addNewSandwich(new: Sandwich) {
         // local
         orderedSandwiches.add(new)
 
@@ -47,7 +46,7 @@ class sandwichLocalDataBase internal constructor(context: Context) {
         editor.apply()
     }
 
-    fun deleteSandwich(sandwich2delete: sandwich) {
+    fun deleteSandwich(sandwich2delete: Sandwich) {
         // update local list
         orderedSandwiches.remove(sandwich2delete)
 
@@ -66,7 +65,7 @@ class sandwichLocalDataBase internal constructor(context: Context) {
         editor.clear().apply()
     }
 
-    fun getSandwich(id: String?):sandwich? {
+    fun getSandwich(id: String?):Sandwich? {
         orderedSandwiches.forEach{
             if (it.id == id){
                 return it

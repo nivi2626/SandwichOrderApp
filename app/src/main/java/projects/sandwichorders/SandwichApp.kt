@@ -4,21 +4,21 @@ import android.content.Context
 import com.google.firebase.FirebaseApp
 
 
-class sandwichApp:Application(){
+class SandwichApp:Application(){
     companion object {
-        lateinit var sandwichLocalDB: sandwichLocalDataBase
+        lateinit var sandwichLocalDB: SandwichLocalDataBase
         const val collection = "sandwiches"
         const val READY_STATUS = "ready"
         const val PROGRESS_STATUS = "in-progress"
         const val WAITING_STATUS = "waiting"
         const val COLLECTION = "sandwiches"
     }
-    val Context.myApp: sandwichApp get() = applicationContext as sandwichApp
+    val Context.myApp: SandwichApp get() = applicationContext as SandwichApp
 
     @Override
     override fun onCreate() {
         super.onCreate()
-        sandwichLocalDB = sandwichLocalDataBase(this)
+        sandwichLocalDB = SandwichLocalDataBase(this)
         FirebaseApp.initializeApp(this)
     }
 

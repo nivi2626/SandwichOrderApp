@@ -3,14 +3,14 @@
     package="projects.sandwichorders">
 
     <application
-        android:name=".sandwichApp"
+        android:name=".SandwichApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        <activity android:name=".openActivity">
+        <activity android:name=".OpenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -25,11 +25,11 @@
 
         <activity
             android:name=".EditActivity"
-            android:parentActivityName=".ordersStatusActivity" />
+            android:parentActivityName=".OrdersStatusActivity" />
 
         <activity
-            android:name=".ordersStatusActivity"
-            android:parentActivityName=".openActivity" />
+            android:name=".OrdersStatusActivity"
+            android:parentActivityName=".OpenActivity" />
 
 
     </application>

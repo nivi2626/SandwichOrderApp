@@ -2,8 +2,6 @@ package projects.sandwichorders
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
@@ -14,13 +12,13 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class EditActivity : AppCompatActivity() {
 //    private val collection = "sandwiches"
-    lateinit var sandwichLocalDB:sandwichLocalDataBase
-    lateinit var sandwichOrder:sandwich
+    lateinit var sandwichLocalDB:SandwichLocalDataBase
+    lateinit var sandwichOrder:Sandwich
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.edit_activity)
-        sandwichLocalDB = sandwichApp.sandwichLocalDB
+        sandwichLocalDB = SandwichApp.sandwichLocalDB
 
         val intent = getIntent()
         val orderID = intent.getStringExtra("id")
@@ -50,13 +48,13 @@ class EditActivity : AppCompatActivity() {
 
         // set listener
         val fireStore = FirebaseFirestore.getInstance()
-        fireStore.collection(sandwichApp.COLLECTION).document(sandwichOrder.id).addSnapshotListener {
+        fireStore.collection(SandwichApp.COLLECTION).document(sandwichOrder.id).addSnapshotListener {
                 documentSnapshot, firebaseFirestoreException ->
-            val sandwichInFireStore = documentSnapshot?.toObject(sandwich::class.java)
-            if (sandwichInFireStore!= null && sandwichInFireStore.status == sandwichApp.PROGRESS_STATUS) {
+            val sandwichInFireStore = documentSnapshot?.toObject(Sandwich::class.java)
+            if (sandwichInFireStore!= null && sandwichInFireStore.status == SandwichApp.PROGRESS_STATUS) {
                  // todo - change status
             }
-            if (sandwichInFireStore!= null && sandwichInFireStore.status == sandwichApp.READY_STATUS) {
+            if (sandwichInFireStore!= null && sandwichInFireStore.status == SandwichApp.READY_STATUS) {
                 // todo - change status
             }
         }
@@ -69,7 +67,7 @@ class EditActivity : AppCompatActivity() {
             val hummus:Boolean = hummusCheckBox.isChecked
             val comments:String = commentsEdit.text.toString()
             val name:String = nameEdit.text.toString()
-            val newSandwich = sandwich(sandwichOrder.id, name, hummus, tahini, comments, sandwichApp.WAITING_STATUS)
+            val newSandwich = Sandwich(sandwichOrder.id, name, hummus, tahini, comments, SandwichApp.WAITING_STATUS)
             // save to local DB
             sandwichLocalDB.addNewSandwich(newSandwich)
             // update to firebase
@@ -81,33 +79,27 @@ class EditActivity : AppCompatActivity() {
         deleteButton.setOnClickListener {
             deleteFromFireStore(sandwichOrder)
             sandwichLocalDB.deleteSandwich(sandwichOrder)
-            // start edit screen
-            val intentForOrder = Intent(this, OrderActivity::class.java)
-            startActivity(intentForOrder) }
+
+            // start orders screen
+            val nextIntent = Intent(this, OrdersStatusActivity::class.java)
+            startActivity(nextIntent) }
     }
 
 
-    private fun uploadToFireStore(sandwichToUpload: sandwich) {
-        val fireStore = FirebaseFirestore.getInstance()
-        fireStore.collection(sandwichApp.COLLECTION).add(sandwichToUpload).addOnSuccessListener {
-            Toast.makeText(this, "item saved", Toast.LENGTH_SHORT).show()
-        }
-    }
 
-
-    private fun deleteFromFireStore(sandwichToDelete: sandwich) {
+    private fun deleteFromFireStore(sandwichToDelete: Sandwich) {
         val fireStore = FirebaseFirestore.getInstance()
-        fireStore.collection(sandwichApp.COLLECTION).document(sandwichToDelete.id).delete()
+        fireStore.collection(SandwichApp.COLLECTION).document(sandwichToDelete.id).delete()
             .addOnSuccessListener {
                 Toast.makeText(this, "Item deleted", Toast.LENGTH_SHORT).show()
             }
     }
 
-    private fun updateFireStore(oldSandwich: sandwich, newSandwich: sandwich) {
+    private fun updateFireStore(oldSandwich: Sandwich, newSandwich: Sandwich) {
         val fireStore = FirebaseFirestore.getInstance()
-        fireStore.collection(sandwichApp.COLLECTION).document(oldSandwich.id).delete()
+        fireStore.collection(SandwichApp.COLLECTION).document(oldSandwich.id).delete()
             .addOnSuccessListener {
-                fireStore.collection(sandwichApp.COLLECTION).add(newSandwich).addOnSuccessListener {
+                fireStore.collection(SandwichApp.COLLECTION).add(newSandwich).addOnSuccessListener {
                     Toast.makeText(this, "Item updated", Toast.LENGTH_SHORT).show()
                 }
             }

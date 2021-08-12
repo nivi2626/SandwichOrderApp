@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="415dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
         android:textSize="40sp"
         android:textColor="@color/white"

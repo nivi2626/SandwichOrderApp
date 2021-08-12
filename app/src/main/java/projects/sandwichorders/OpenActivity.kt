@@ -3,15 +3,14 @@ package projects.sandwichorders
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.firestore.FirebaseFirestore
 
-class openActivity : AppCompatActivity() {
-    lateinit var sandwichLocalDB: sandwichLocalDataBase
+class OpenActivity : AppCompatActivity() {
+    lateinit var sandwichLocalDB: SandwichLocalDataBase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.open_activity)
-        sandwichLocalDB = sandwichApp.sandwichLocalDB
+        sandwichLocalDB = SandwichApp.sandwichLocalDB
 //        sandwichLocalDB.clear() // debugging
 
         // check if there are active orders
@@ -22,7 +21,7 @@ class openActivity : AppCompatActivity() {
         }
         // no order -  go to OrderActivity
         else {
-            val intentNext = Intent(this, ordersStatusActivity::class.java)
+            val intentNext = Intent(this, OrdersStatusActivity::class.java)
             startActivity(intentNext)
         }
     }
