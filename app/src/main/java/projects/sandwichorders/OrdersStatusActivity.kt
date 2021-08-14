@@ -11,19 +11,19 @@ import androidx.recyclerview.widget.RecyclerView
 import java.util.*
 
 class OrdersStatusActivity : AppCompatActivity() {
-    lateinit var sandwichLocalDB: SandwichLocalDataBase
+    lateinit var orderedSandwiches: List<Sandwich>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.orders_status_activity)
-        sandwichLocalDB = SandwichApp.sandwichLocalDB
+        orderedSandwiches = SandwichApp.sandwichLocalDB.orderedSandwiches
 
-        // find view
+        // find views
         val newOrderButton = this.findViewById<Button>(R.id.order)
 
         // recycleView
         val adapter = SandwichesAdapter()
-        adapter.setItems(sandwichLocalDB.orderedSandwiches)
+        adapter.setItems(orderedSandwiches)
         val sandwichRecycleView = findViewById<RecyclerView>(R.id.sandwich_recycler)
         sandwichRecycleView.adapter = adapter
         sandwichRecycleView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)

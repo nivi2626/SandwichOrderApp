@@ -2,12 +2,12 @@ package projects.sandwichorders
 import android.app.Application
 import android.content.Context
 import com.google.firebase.FirebaseApp
+import java.util.*
 
 
 class SandwichApp:Application(){
     companion object {
         lateinit var sandwichLocalDB: SandwichLocalDataBase
-        const val collection = "sandwiches"
         const val READY_STATUS = "ready"
         const val PROGRESS_STATUS = "in-progress"
         const val WAITING_STATUS = "waiting"

@@ -40,21 +40,24 @@ class SandwichLocalDataBase internal constructor(context: Context) {
         // local
         orderedSandwiches.add(new)
 
-        // update DB
+        // update SP
         val editor = sp.edit()
         editor.putString(new.id, sandwich2string(new))
         editor.apply()
     }
 
+
     fun deleteSandwich(sandwich2delete: Sandwich) {
         // update local list
         orderedSandwiches.remove(sandwich2delete)
-
         // update SP
-        val editor = sp.edit()
-        editor.remove(sandwich2string(sandwich2delete)).apply()
+        val editor = sp.edit().remove(sandwich2string(sandwich2delete)).apply()
     }
 
+    fun updateSandwich(old:Sandwich, new: Sandwich) {
+        deleteSandwich(old)
+        addNewSandwich(new)
+    }
 
     fun clear() {
         // clear local list

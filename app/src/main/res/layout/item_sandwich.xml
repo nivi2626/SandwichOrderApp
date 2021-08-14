@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="110dp">
+    android:layout_height="120dp">
 
     <Button
         android:id="@+id/edit"
@@ -30,23 +30,37 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/spreads"
-        android:text="all chosen spreads...."
+        android:id="@+id/ingredients"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:textSize="20dp"
         android:layout_marginLeft="10dp"
+        android:text="spreads\nveggies"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toStartOf="@+id/edit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/name" />
 
 
     <TextView
-        android:id="@+id/vegetables"
-        android:text="all chosen veggies...."
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:textSize="20dp"
+        android:id="@+id/status"
+        android:text="status: "
         android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="#626362"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/spreads" />
+        app:layout_constraintTop_toBottomOf="@+id/ingredients"/>
+
+
+    <TextView
+        android:id="@+id/showStatus"
+        android:layout_width="100dp"
+        android:layout_height="39dp"
+        android:text="waiting"
+        android:textColor="#4ED1A3"
+        android:textSize="20sp"
+        android:fontFamily="serif"
+        app:layout_constraintStart_toEndOf="@id/status"
+        app:layout_constraintTop_toBottomOf="@+id/ingredients" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
+
 class OpenActivity : AppCompatActivity() {
     lateinit var sandwichLocalDB: SandwichLocalDataBase
 
@@ -11,7 +12,6 @@ class OpenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.open_activity)
         sandwichLocalDB = SandwichApp.sandwichLocalDB
-//        sandwichLocalDB.clear() // debugging
 
         // check if there are active orders
         // no order -  go to OrderActivity
@@ -19,7 +19,7 @@ class OpenActivity : AppCompatActivity() {
             val intentNext = Intent(this, OrderActivity::class.java)
             startActivity(intentNext)
         }
-        // no order -  go to OrderActivity
+        // orders -  go to OrdersStatusActivity
         else {
             val intentNext = Intent(this, OrdersStatusActivity::class.java)
             startActivity(intentNext)

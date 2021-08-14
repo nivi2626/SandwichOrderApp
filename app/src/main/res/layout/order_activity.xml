@@ -258,7 +258,7 @@
         app:layout_constraintTop_toBottomOf="@+id/pickles" />
 
 
-    <!--    save button     -->
+    <!--    save & back button     -->
 
     <Button
         android:id="@+id/saveButton"
@@ -271,4 +271,13 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
 
+    <Button
+        android:id="@+id/backButton"
+        android:text="Back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:backgroundTint="#4ED1A3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

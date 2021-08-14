@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditActivity">
-
+    tools:context=".OrderActivity">
 
     <TextView
         android:id="@+id/title"
@@ -19,7 +18,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <TextView
         android:id="@+id/name"
@@ -142,27 +140,27 @@
 
     <TextView
         android:id="@+id/vegetables_instructions"
-        android:text="Choose vegetables for your sandwich: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textSize="20sp"
+        android:layout_marginStart="385dp"
+        android:layout_marginTop="8dp"
+        android:text="Choose vegetables for your sandwich: "
         android:textColor="@android:color/darker_gray"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hummus" />
+        app:layout_constraintTop_toBottomOf="@+id/name" />
 
     <CheckBox
         android:id="@+id/tomatoes"
         android:text="Tomatoes"
+        android:layout_marginLeft="200dp"
+
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:textSize="20sp"
         android:textColor="#626362"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="200dp"
-        tools:layout_editor_absoluteX="93dp"
-        tools:layout_editor_absoluteY="178dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/vegetables_instructions"
         app:layout_constraintTop_toBottomOf="@+id/vegetables_instructions"/>
 
     <CheckBox
@@ -174,9 +172,7 @@
         android:textColor="#626362"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="200dp"
-        tools:layout_editor_absoluteX="93dp"
-        tools:layout_editor_absoluteY="178dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/vegetables_instructions"
         app:layout_constraintTop_toBottomOf="@+id/tomatoes"/>
 
     <CheckBox
@@ -188,9 +184,7 @@
         android:textColor="#626362"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="200dp"
-        tools:layout_editor_absoluteX="93dp"
-        tools:layout_editor_absoluteY="178dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/vegetables_instructions"
         app:layout_constraintTop_toBottomOf="@+id/lettuce"/>
 
     <CheckBox
@@ -201,9 +195,7 @@
         android:layout_marginTop="5dp"
         android:textSize="20sp"
         android:textColor="#626362"
-        tools:layout_editor_absoluteX="93dp"
-        tools:layout_editor_absoluteY="178dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/vegetables_instructions"
         app:layout_constraintTop_toBottomOf="@+id/vegetables_instructions"/>
 
     <CheckBox
@@ -216,7 +208,7 @@
         android:textColor="#626362"
         tools:layout_editor_absoluteX="93dp"
         tools:layout_editor_absoluteY="178dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/vegetables_instructions"
         app:layout_constraintTop_toBottomOf="@+id/avocado"/>
 
     <CheckBox
@@ -227,10 +219,9 @@
         android:layout_height="40dp"
         android:layout_marginTop="5dp"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="93dp"
-        tools:layout_editor_absoluteY="178dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/vegetables_instructions"
         app:layout_constraintTop_toBottomOf="@+id/cucumbers"/>
+
 
 
     <!--    comments     -->
@@ -260,33 +251,7 @@
         app:layout_constraintTop_toBottomOf="@+id/pickles" />
 
 
-    <!--    status buttons     -->
-
-    <TextView
-        android:id="@+id/status"
-        android:text="status: "
-        android:layout_width="70dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="20dp"
-        android:textSize="20sp"
-        android:textColor="#626362"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/comments"/>
-
-
-    <TextView
-        android:id="@+id/showStatus"
-        android:layout_width="100dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="20dp"
-        android:text="waiting"
-        android:textColor="#4ED1A3"
-        android:textSize="20sp"
-        android:fontFamily="serif"
-        app:layout_constraintStart_toEndOf="@id/status"
-        app:layout_constraintTop_toBottomOf="@+id/comments" />
-
-    <!--    save & delete buttons     -->
+    <!--    save & back button     -->
 
     <Button
         android:id="@+id/saveButton"
@@ -298,13 +263,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+
     <Button
-        android:id="@+id/deleteButton"
-        android:text="delete"
+        android:id="@+id/backButton"
+        android:text="Back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:backgroundTint="#F8574B"
+        android:backgroundTint="#4ED1A3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

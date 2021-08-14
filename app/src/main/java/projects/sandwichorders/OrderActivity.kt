@@ -12,15 +12,18 @@ import java.util.*
 
 class OrderActivity : AppCompatActivity() {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.order_activity)
 
         // general views:
+        val backButton = this.findViewById<Button>(R.id.backButton)
+        val saveButton = this.findViewById<Button>(R.id.saveButton)
+
+        //sandwich views:
         val nameEdit = this.findViewById<EditText>(R.id.nameEdit)
         val commentsEdit = this.findViewById<EditText>(R.id.commentsEdit)
-        val deleteButton = this.findViewById<Button>(R.id.deleteButton)
-        val saveButton = this.findViewById<Button>(R.id.saveButton)
         // spreads views:
         val tahiniCheckBox = this.findViewById<CheckBox>(R.id.tahini)
         val tapenadeCheckBox = this.findViewById<CheckBox>(R.id.tapenade)
@@ -36,16 +39,21 @@ class OrderActivity : AppCompatActivity() {
         val lettuceCheckBox = this.findViewById<CheckBox>(R.id.lettuce)
         val onionCheckBox = this.findViewById<CheckBox>(R.id.onion)
 
-
         // save listener
         saveButton.setOnClickListener(View.OnClickListener {
             // create new sandwich
-            val id :String = UUID.randomUUID().toString()
-            val name :String = nameEdit.text.toString()
-            val tahini:Boolean = tahiniCheckBox.isChecked
-            val hummus:Boolean = hummusCheckBox.isChecked
-            val comments:String = commentsEdit.text.toString()
-            val newSandwich = Sandwich(id, name, hummus, tahini, comments, "waiting")
+            val newSandwich = Sandwich(
+                    id=UUID.randomUUID().toString(),
+                    name = nameEdit.text.toString(),
+                    spreads = listOf(tahiniCheckBox.isChecked, cheeseCheckBox.isChecked,
+                            tapenadeCheckBox.isChecked, pestoCheckBox.isChecked,
+                            hummusCheckBox.isChecked, guacamoleCheckBox.isChecked),
+                    vegetables = listOf(avocadoCheckBox.isChecked, tomatoesCheckBox.isChecked,
+                            cucumbersCheckBox.isChecked, lettuceCheckBox.isChecked,
+                            picklesCheckBox.isChecked, onionCheckBox.isChecked),
+                    comments= commentsEdit.text.toString(),
+                    status = "waiting")
+
             // save to local DB
             sandwichLocalDB.addNewSandwich(newSandwich)
             // upload to firebase
@@ -56,26 +64,24 @@ class OrderActivity : AppCompatActivity() {
             startActivity(nextIntent);
         })
 
+        // back listener
+        backButton.setOnClickListener(){
+            onBackPressed()
+        }
     }
 
+
     private fun uploadToFireStore(sandwichToUpload: Sandwich) {
+
         val fireStore = FirebaseFirestore.getInstance()
-        fireStore.collection(SandwichApp.collection).document(sandwichToUpload.id).set(sandwichToUpload)
+        fireStore.collection(SandwichApp.COLLECTION).document(sandwichToUpload.id).set(sandwichToUpload)
             .addOnSuccessListener {
                 Toast.makeText(this, "item saved", Toast.LENGTH_SHORT).show()
             }
-    }
-
-    private fun downloadFromFireStore(id: String) {
-        val newSandwich = null
-        val fireStore = FirebaseFirestore.getInstance()
-        fireStore.collection(SandwichApp.collection).document(id).get()
-            .addOnSuccessListener {
-                val newSandwich = it.toObject(Sandwich::class.java)
-                return@addOnSuccessListener
-            }.addOnFailureListener {
-                return@addOnFailureListener
+            .addOnFailureListener {
+                Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show()
             }
+
     }
 
     override fun onBackPressed() {
@@ -83,5 +89,6 @@ class OrderActivity : AppCompatActivity() {
         val nextIntent = Intent(this, OrdersStatusActivity::class.java)
         startActivity(nextIntent);
     }
+
 }
 
