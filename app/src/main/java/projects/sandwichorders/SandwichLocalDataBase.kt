@@ -42,8 +42,7 @@ class SandwichLocalDataBase internal constructor(context: Context) {
 
         // update SP
         val editor = sp.edit()
-        editor.putString(new.id, sandwich2string(new))
-        editor.apply()
+        editor.putString(new.id, sandwich2string(new)).apply()
     }
 
 
@@ -51,7 +50,7 @@ class SandwichLocalDataBase internal constructor(context: Context) {
         // update local list
         orderedSandwiches.remove(sandwich2delete)
         // update SP
-        val editor = sp.edit().remove(sandwich2string(sandwich2delete)).apply()
+        sp.edit().remove(sandwich2delete.id).apply()
     }
 
     fun updateSandwich(old:Sandwich, new: Sandwich) {

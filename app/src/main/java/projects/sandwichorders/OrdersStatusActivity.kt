@@ -35,22 +35,8 @@ class OrdersStatusActivity : AppCompatActivity() {
             startActivity(intentForOrder);
         })
     }
-}
 
-//val orderID = sandwichLocalDB.orderedSandwich!!.id
-//val fireStore = FirebaseFirestore.getInstance()
-//fireStore.collection(sandwichApp.collection).document(orderID).get()
-//.addOnSuccessListener {
-//    val downloadSandwich = it.toObject(sandwich::class.java)
-//    if (downloadSandwich != null) {
-//        if (downloadSandwich.status == "waiting") {
-//            intentNext = Intent(this, EditActivity::class.java)
-//        }
-//        if (downloadSandwich.status == "in-progress") {
-//            intentNext = Intent(this, EditActivity::class.java)
-//        }
-//
-//        intentNext.putExtra("id", downloadSandwich.id)
-//        startActivity(intentNext)
-//    }
-//}
+    override fun onBackPressed() {
+        // do nothing
+    }
+}
