@@ -6,3 +6,4 @@ its preparation stages and announces when the sandwich  is ready, so the user ca
 Technologies:
 SP
 Firestore (FireBase)
+RecycleView
